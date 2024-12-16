@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import yaml from '@modyfi/vite-plugin-yaml'
+import viteImagemin from 'vite-plugin-imagemin'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -27,12 +28,15 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
     watch: {
-      usePolling: true
+      usePolling: true,
+      interval: 100
     },
     cors: true,
     hmr: {
+      overlay: true,
       clientPort: 443,
-      protocol: 'wss'
+      protocol: 'wss',
+      timeout: 30000
     }
   },
   preview: {
