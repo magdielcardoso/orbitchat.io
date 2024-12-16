@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/orbit_light.svg alt="OrbitChat.io Logo" width="200"/>
+  <img src="public/orbit_light.svg" alt="OrbitChat.io Logo" width="200"/>
 </p>
 
 <p align="center">
@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <img src="public/github/superadmin.jpeg alt="OrbitChat.io Superadmin Panel" width="200"/>
+  <img src="https://raw.githubusercontent.com/magdielcardoso/orbitchat.io/refs/heads/develop/public/assets/github/superadmin.jpeg" alt="OrbitChat.io Superadmin Panel" width="200"/>
 </p>
 
 ## 🚀 Sobre
@@ -27,7 +27,7 @@ OrbitChat.io é uma plataforma de atendimento ao cliente omnichannel de código 
 - 🔒 Auto-hospedável e seguro
 
 <p align="center">
-  <img src="public/github/login.jpeg alt="OrbitChat.io Login" width="200"/>
+  <img src="https://raw.githubusercontent.com/magdielcardoso/orbitchat.io/refs/heads/develop/public/assets/github/login.jpeg" alt="OrbitChat.io Login" width="200"/>
 </p>
 
 ## 🛠️ Tecnologias
