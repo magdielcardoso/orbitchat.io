@@ -11,8 +11,8 @@ COPY package*.json ./
 COPY backend/package*.json ./backend/
 
 # Instala todas as dependências (incluindo devDependencies)
-RUN npm install --include=dev
-RUN cd backend && npm install --include=dev
+RUN npm install --include=dev --legacy-peer-deps
+RUN cd backend && npm install --include=dev --legacy-peer-deps
 
 # Copia o código fonte
 COPY . .
