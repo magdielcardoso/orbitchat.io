@@ -45,15 +45,28 @@ export default defineConfig({
     strictPort: true
   },
   define: {
-    'import.meta.env.VITE_API_URL': JSON.stringify(process.env.API_URL || 'http://localhost:4000')
+    'process.env': {},
+    __VUE_PROD_DEVTOOLS__: false
   },
-  // Configuração adicional para garantir que arquivos YAML sejam processados
+  envPrefix: ['VITE_'],
+  envDir: '.',
   optimizeDeps: {
     exclude: ['@modyfi/vite-plugin-yaml']
   },
   build: {
-    commonjsOptions: {
-      include: [/node_modules/, /config/]
-    }
+    target: 'esnext',
+    minify: 'esbuild',
+    esbuild: {
+      drop: ['console', 'debugger'],
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vue-vendor': ['vue', 'vue-router', 'pinia'],
+            'ui-vendor': ['lucide-vue-next']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000
   }
 })
