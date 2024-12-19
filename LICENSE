@@ -4,40 +4,33 @@ Orbit.io is open-source software licensed under the **GNU Affero General Public 
 This license is designed to protect user freedom and encourage collaboration in open-source software development.  
 AGPLv3 ensures that the software, including its modifications, remains free for all users, even when used in remotely accessible services.
 
-## **Rights and Permissions**
-
-1. **Free Use**  
+## Rights and Permissions
+1. Free Use:
    You are free to use Orbit.io in your infrastructure, whether for commercial or non-commercial purposes, without the obligation to share the code, as long as the software is not distributed or made publicly available.
 
-2. **Modification and Customization**  
+2. Modification and Customization:
    You have the right to modify Orbit.io and implement new features.  
    - However, **if the modified software is distributed or used in a remote service (e.g., SaaS)**, you are required to share the changes publicly.
 
-## **Requirements for Commercial or Public Use**
-
+## Requirements for Commercial or Public Use
 If you use Orbit.io as part of a commercial service or product, the following AGPLv3 requirements apply:
 
-1. **Source Code Availability**  
+1. Source Code Availability:  
    All modifications or improvements made to Orbit.io must be made publicly available under the same AGPLv3 terms.  
-   - **Relevant AGPLv3 Section**: "You must offer access to the corresponding source code, under the same terms of this license, to users of your application." (Section 13).  
+      - Relevant AGPLv3 Section: "You must offer access to the corresponding source code, under the same terms of this license, to users of your application." (Section 13).  
 
-2. **Attribution to the Official Project**  
+2. Attribution to the Official Project:  
    You must:  
-   - Clearly highlight the **official Orbit.io project** in your communications, materials, and the software interface.  
-   - Inform your users that they are using a derivative version of Orbit.io.  
+      - Clearly highlight the **official Orbit.io project** in your communications, materials, and the software interface.  
+      - Inform your users that they are using a derivative version of Orbit.io.  
 
-3. **Providing Modified Code**  
+3. Providing Modified Code:
    On your website or documentation, include a public link to the repository containing the code with your modifications, allowing others to review the changes.  
-   - **Relevant AGPLv3 Section**: "Modifications must be clearly identified for users." (Section 5).
+      - Relevant AGPLv3 Section: "Modifications must be clearly identified for users." (Section 5).
 
-## **Benefits of the License**
-
+## Benefits of the License
 These requirements ensure that Orbit.io remains transparent and that everyone equally benefits from improvements.  
 They also prevent companies from using the software in commercial environments without contributing back to the community.
-
-## **Other Languages**
-
-For the license in **Portuguese**, see the [LICENSE_ptBR](LICENSE_ptBR) file.
 
 
                     GNU AFFERO GENERAL PUBLIC LICENSE
