@@ -1,0 +1,17 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Regra: Testes Devem Ser Prioridade
+
+Todo novo recurso solicitado para o projeto deve, obrigatoriamente, ter um teste automatizado escrito na pasta [test](mdc:test) **antes** de sua implementação ou desenvolvimento.
+
+- O teste deve cobrir os principais fluxos e casos de uso do recurso.
+- A ausência de teste impede a implementação do recurso.
+- Esta regra se aplica a models, controllers, serviços, integrações e qualquer funcionalidade nova.
+
+**Exemplo:**
+Se for solicitado um novo model "Ticket", primeiro deve ser criado um teste correspondente em [test/models/](mdc:test/models), antes de gerar o model propriamente dito.
+
+Esta prática garante qualidade, segurança e evolução sustentável do código.
