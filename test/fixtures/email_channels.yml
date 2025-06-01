@@ -1,0 +1,7 @@
+um:
+  email: "canal@email.com"
+  smtp_settings: "smtp://smtp.example.com"
+  imap_settings: "imap://imap.example.com"
+  active: true
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %> 

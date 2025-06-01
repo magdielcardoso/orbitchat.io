@@ -1,0 +1,7 @@
+um:
+  webhook_url: "https://webhook.example.com"
+  token: "abc123"
+  active: true
+  settings: {}
+  created_at: <%= Time.current %>
+  updated_at: <%= Time.current %> 

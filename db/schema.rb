@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_01_213416) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_01_214455) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -18,10 +21,19 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_01_213416) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "api_channels", force: :cascade do |t|
+    t.string "webhook_url"
+    t.string "token"
+    t.boolean "active"
+    t.jsonb "settings", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.integer "account_id", null: false
+    t.bigint "account_id", null: false
     t.text "metadata"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,8 +41,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_01_213416) do
   end
 
   create_table "conversations", force: :cascade do |t|
-    t.integer "inbox_id", null: false
-    t.integer "contact_id", null: false
+    t.bigint "inbox_id", null: false
+    t.bigint "contact_id", null: false
     t.string "status"
     t.datetime "last_activity_at"
     t.text "metadata"
@@ -40,15 +52,25 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_01_213416) do
     t.index ["inbox_id"], name: "index_conversations_on_inbox_id"
   end
 
+  create_table "email_channels", force: :cascade do |t|
+    t.string "email"
+    t.string "smtp_settings"
+    t.string "imap_settings"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "inboxes", force: :cascade do |t|
     t.string "name"
-    t.integer "account_id", null: false
+    t.bigint "account_id", null: false
     t.string "channel_type"
+    t.bigint "channel_id"
     t.boolean "active"
-    t.text "settings"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_inboxes_on_account_id"
+    t.index ["channel_type", "channel_id"], name: "index_inboxes_on_channel_type_and_channel_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,7 +79,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_01_213416) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "account_id"
+    t.bigint "account_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
