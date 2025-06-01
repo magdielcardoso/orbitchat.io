@@ -44,8 +44,6 @@ class InboxTest < ActiveSupport::TestCase
   end
 
   test "deve ser possível criar, atualizar e destruir inbox" do
-    # FIXME: Este teste depende da existência do model Conversation.
-    # Quando Conversation for implementado, este teste deve passar normalmente.
     assert_difference("Inbox.count", 1) { @inbox.save! }
     @inbox.update!(name: "Comercial E-mail", channel_type: Inbox.polymorphic_channel_type(@channel_types.last))
     assert_equal "Comercial E-mail", @inbox.reload.name
