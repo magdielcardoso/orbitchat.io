@@ -7,7 +7,7 @@ class InboxTest < ActiveSupport::TestCase
     @inbox = Inbox.new(
       name: "Suporte WhatsApp",
       account: @account,
-      channel_type: @channel_types.first,
+      channel_type: Inbox.polymorphic_channel_type(@channel_types.first),
       active: true
     )
   end
@@ -29,7 +29,7 @@ class InboxTest < ActiveSupport::TestCase
 
   test "name deve ser único por account" do
     @inbox.save!
-    outra = Inbox.new(name: @inbox.name, account: @account, channel_type: @channel_types.last)
+    outra = Inbox.new(name: @inbox.name, account: @account, channel_type: Inbox.polymorphic_channel_type(@channel_types.last))
     assert_not outra.valid?, "Nome duplicado na mesma account deve ser inválido"
     outra_account = Account.create!(name: "Outra Empresa", email: "outra@empresa.com")
     outra.account = outra_account
@@ -39,7 +39,7 @@ class InboxTest < ActiveSupport::TestCase
   test "channel_type deve ser um dos valores do YML" do
     @inbox.channel_type = "invalido"
     assert_not @inbox.valid?
-    @inbox.channel_type = @channel_types.sample
+    @inbox.channel_type = Inbox.polymorphic_channel_type(@channel_types.sample)
     assert @inbox.valid?
   end
 
@@ -47,13 +47,13 @@ class InboxTest < ActiveSupport::TestCase
     # FIXME: Este teste depende da existência do model Conversation.
     # Quando Conversation for implementado, este teste deve passar normalmente.
     assert_difference("Inbox.count", 1) { @inbox.save! }
-    @inbox.update!(name: "Comercial E-mail", channel_type: @channel_types.last)
+    @inbox.update!(name: "Comercial E-mail", channel_type: Inbox.polymorphic_channel_type(@channel_types.last))
     assert_equal "Comercial E-mail", @inbox.reload.name
     assert_difference("Inbox.count", -1) { @inbox.destroy }
   end
 
   test "deve exigir associação obrigatória com account" do
-    inbox = Inbox.new(name: "Sem Conta", channel_type: @channel_types.first)
+    inbox = Inbox.new(name: "Sem Conta", channel_type: Inbox.polymorphic_channel_type(@channel_types.first))
     assert_not inbox.valid?
   end
 end
