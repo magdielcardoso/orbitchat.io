@@ -10,12 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_01_211225) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_01_213416) do
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.integer "account_id", null: false
+    t.text "metadata"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_contacts_on_account_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "inbox_id", null: false
+    t.integer "contact_id", null: false
+    t.string "status"
+    t.datetime "last_activity_at"
+    t.text "metadata"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_conversations_on_contact_id"
+    t.index ["inbox_id"], name: "index_conversations_on_inbox_id"
   end
 
   create_table "inboxes", force: :cascade do |t|
@@ -44,5 +66,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_01_211225) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contacts", "accounts"
+  add_foreign_key "conversations", "contacts"
+  add_foreign_key "conversations", "inboxes"
   add_foreign_key "inboxes", "accounts"
 end
