@@ -3,7 +3,8 @@ require "test_helper"
 class ConversationTest < ActiveSupport::TestCase
   def setup
     @account = Account.create!(name: "Empresa Exemplo", email: "conta@exemplo.com")
-    @inbox = Inbox.create!(name: "Suporte WhatsApp", account: @account, channel_type: Inbox::CHANNEL_TYPES.first, active: true)
+    tipo_simples = Inbox.channel_types_from_yml.first
+    @inbox = Inbox.create!(name: "Suporte WhatsApp", account: @account, channel_type: Inbox.polymorphic_channel_type(tipo_simples), active: true)
     @contact = Contact.create!(name: "Cliente", email: "cliente@exemplo.com", account: @account)
     @conversation = Conversation.new(
       inbox: @inbox,
