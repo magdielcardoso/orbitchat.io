@@ -8,3 +8,5 @@ chat:
   label: Chat Web
 outro:
   label: Outro 
+api:
+  label: API
