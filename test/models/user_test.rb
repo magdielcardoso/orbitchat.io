@@ -51,4 +51,41 @@ class UserTest < ActiveSupport::TestCase
     assert autenticado.valid_password?("senhaSegura123")
     assert_not autenticado.valid_password?("senhaErrada")
   end
+
+  test "deve permitir atualizar email e senha para valores válidos" do
+    @user.save!
+    novo_email = "novo_#{SecureRandom.hex(4)}@exemplo.com"
+    @user.update!(email: novo_email, password: "novaSenha123", password_confirmation: "novaSenha123")
+    assert_equal novo_email, @user.reload.email
+    autenticado = User.find_for_authentication(email: novo_email)
+    assert autenticado.valid_password?("novaSenha123")
+  end
+
+  test "não deve permitir atualizar email para um já existente" do
+    @user.save!
+    outro = User.create!(email: "outro_#{SecureRandom.hex(4)}@exemplo.com", password: "senha123", password_confirmation: "senha123", account: @account)
+    assert_raises ActiveRecord::RecordInvalid do
+      outro.update!(email: @user.email)
+    end
+  end
+
+  test "deve permitir destruir user normalmente" do
+    @user.save!
+    assert_difference("User.count", -1) do
+      @user.destroy
+    end
+  end
+
+  test "exclusão de user não afeta a account" do
+    @user.save!
+    assert_no_difference("Account.count") do
+      @user.destroy
+    end
+  end
+
+  test "não deve permitir remover associação com account após criado" do
+    @user.save!
+    @user.account = nil
+    assert_not @user.valid?
+  end
 end
