@@ -4,10 +4,11 @@ class CreateInboxes < ActiveRecord::Migration[8.0]
       t.string :name
       t.references :account, null: false, foreign_key: true
       t.string :channel_type
+      t.bigint :channel_id
       t.boolean :active
-      t.text :settings
 
       t.timestamps
     end
+    add_index :inboxes, [ :channel_type, :channel_id ]
   end
 end
