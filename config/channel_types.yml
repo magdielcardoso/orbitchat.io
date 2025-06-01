@@ -1,0 +1,10 @@
+whatsapp:
+  label: WhatsApp
+email:
+  label: E-mail
+messenger:
+  label: Messenger
+chat:
+  label: Chat Web
+outro:
+  label: Outro 
