@@ -40,7 +40,8 @@ class ContactTest < ActiveSupport::TestCase
 
   test "ao destruir contact, conversations associadas devem ser destruídas se dependente" do
     @contact.save!
-    inbox = Inbox.create!(name: "Inbox", account: @account, channel_type: Inbox::CHANNEL_TYPES.first, active: true)
+    tipo_simples = Inbox.channel_types_from_yml.first
+    inbox = Inbox.create!(name: "Inbox", account: @account, channel_type: Inbox.polymorphic_channel_type(tipo_simples), active: true)
     conversation = Conversation.create!(inbox: inbox, contact: @contact)
     assert_difference("Conversation.count", -1) do
       @contact.destroy
