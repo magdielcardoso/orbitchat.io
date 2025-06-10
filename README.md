@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/images/logo_dark.svg" alt="OrbitChat Logo" width="400" />
+  <img src=".github/images/logo_white.svg" alt="OrbitChat Logo" width="400" />
 </p>
 
 <p align="center">
