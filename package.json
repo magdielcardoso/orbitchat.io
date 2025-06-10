@@ -7,15 +7,18 @@
     "vite-plugin-ruby": "^5.1.1"
   },
   "dependencies": {
+    "@inertiajs/vue3": "^2.0.12",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.1.8",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.8",
+    "@vitejs/plugin-vue": "^5.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.8",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vue": "^3.5.16"
   },
   "scripts": {
     "check": "tsc -p tsconfig.app.json && tsc -p tsconfig.node.json"
