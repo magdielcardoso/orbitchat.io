@@ -1,4 +1,8 @@
 <p align="center">
+  <img src=".github/images/logo_dark.svg" alt="OrbitChat Logo" width="400" />
+</p>
+
+<p align="center">
   <a href="https://github.com/magdielcardoso/orbitchat.io/blob/main/LICENSE">
     <img alt="License: AGPL v3" src="https://img.shields.io/github/license/magdielcardoso/orbitchat.io?color=blue">
   </a>
@@ -19,7 +23,8 @@
   </a>
 </p>
 
-# README
+# OrbitChat
+### Open Source Customer Support Platform
 
 ## Tech Stack
 
