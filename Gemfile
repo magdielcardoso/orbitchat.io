@@ -13,6 +13,7 @@ gem "propshaft"
 gem "bootsnap", require: false
 gem 'dotenv-rails'
 gem "thruster", require: false
+gem "lograge"
 
 # Cache and Queue
 gem 'redis'
@@ -24,6 +25,7 @@ gem "kamal", require: false
 
 # Database
 gem "pg"
+gem 'goldiloader'
 
 # Authentication & Authorization
 gem "devise", "~> 4.9"
@@ -61,4 +63,5 @@ group :test do
   gem "selenium-webdriver"
   gem "database_cleaner-active_record"
   gem "minitest-reporters"
+  gem 'simplecov', require: false
 end
