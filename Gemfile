@@ -70,3 +70,5 @@ gem "devise", "~> 4.9"
 gem "aasm"
 
 gem "pg"
+
+gem "administrate"

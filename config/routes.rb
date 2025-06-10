@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :accounts
+      resources :contacts
+      resources :conversations
+      resources :inboxes
+      resources :messages
+      resources :users
+
+      root to: "accounts#index"
+    end
   resources :accounts
   resources :contacts
   resources :conversations
