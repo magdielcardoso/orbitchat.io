@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Regra: Não Usar Views Padrão do Rails
+
+Este projeto **NÃO utiliza as views padrão do Rails** (arquivos `.html.erb` em `app/views`).
+
+## Stack de Frontend
+- O frontend é implementado **exclusivamente** com [InertiaJs](mdc:https:/inertiajs.com) e [Vue 3](mdc:https:/vuejs.org), localizados na pasta [`app/frontend`](mdc:app/frontend).
+- O build e hot reload do frontend são feitos via [Vite](mdc:https:/vitejs.dev), conforme configurado em [`vite.config.ts`](mdc:vite.config.ts), [`package.json`](mdc:package.json) e [`Gemfile`](mdc:Gemfile).
+- As páginas, componentes e assets Vue devem ser criados/alterados **apenas** dentro de [`app/frontend`](mdc:app/frontend).
+
+## Diretrizes para a IA
+- **Nunca** gere, edite ou utilize arquivos `.html.erb` em `app/views`.
+- **Nunca** utilize os geradores Rails para views padrão (ex: `rails generate scaffold`, `rails generate controller ... index show ...` que criam `.erb`).
+- Para qualquer interface, navegação ou página, implemente como componente/página Vue em `app/frontend`.
+- Controllers Rails devem responder via InertiaJs, retornando props para o frontend Vue.
+- Sempre consulte [`vite.config.ts`](mdc:vite.config.ts), [`package.json`](mdc:package.json) e [`Gemfile`](mdc:Gemfile) para entender a stack e dependências do frontend.
+
+## Exemplos
+- ✅ Correto: Criar página Vue em `app/frontend/pages/Chat.vue` e controller Rails que responde via Inertia.
+- ❌ Errado: Criar ou editar arquivos `.html.erb` em `app/views`.
+
+---
+**Referências:**
+- [Gemfile](mdc:Gemfile)
+- [package.json](mdc:package.json)
+- [vite.config.ts](mdc:vite.config.ts)
+- [app/frontend](mdc:app/frontend)
