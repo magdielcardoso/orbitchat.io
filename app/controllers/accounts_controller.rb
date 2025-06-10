@@ -1,14 +1,17 @@
 class AccountsController < ApplicationController
   def index
-    render :index
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Accounts/Index.vue
+    render inertia: "Accounts/Index"
   end
 
   def show
-    render :show
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Accounts/Show.vue
+    render inertia: "Accounts/Show"
   end
 
   def new
-    render :new
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Accounts/New.vue
+    render inertia: "Accounts/New"
   end
 
   def create
@@ -16,7 +19,8 @@ class AccountsController < ApplicationController
   end
 
   def edit
-    render :edit
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Accounts/Edit.vue
+    render inertia: "Accounts/Edit"
   end
 
   def update

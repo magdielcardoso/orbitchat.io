@@ -1,14 +1,17 @@
 class MessagesController < ApplicationController
   def index
-    render :index
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Messages/Index.vue
+    render inertia: "Messages/Index"
   end
 
   def show
-    render :show
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Messages/Show.vue
+    render inertia: "Messages/Show"
   end
 
   def new
-    render :new
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Messages/New.vue
+    render inertia: "Messages/New"
   end
 
   def create
@@ -16,7 +19,8 @@ class MessagesController < ApplicationController
   end
 
   def edit
-    render :edit
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Messages/Edit.vue
+    render inertia: "Messages/Edit"
   end
 
   def update

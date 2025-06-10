@@ -1,14 +1,17 @@
 class ConversationsController < ApplicationController
   def index
-    render :index
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Conversations/Index.vue
+    render inertia: "Conversations/Index"
   end
 
   def show
-    render :show
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Conversations/Show.vue
+    render inertia: "Conversations/Show"
   end
 
   def new
-    render :new
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Conversations/New.vue
+    render inertia: "Conversations/New"
   end
 
   def create
@@ -16,7 +19,8 @@ class ConversationsController < ApplicationController
   end
 
   def edit
-    render :edit
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Conversations/Edit.vue
+    render inertia: "Conversations/Edit"
   end
 
   def update

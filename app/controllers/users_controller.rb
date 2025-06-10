@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
   def index
-    render :index
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Users/Index.vue
+    render inertia: "Users/Index"
   end
 
   def show
-    render :show
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Users/Show.vue
+    render inertia: "Users/Show"
   end
 
   def new
-    render :new
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Users/New.vue
+    render inertia: "Users/New"
   end
 
   def create
@@ -16,7 +19,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    render :edit
+    # TODO: Criar página Vue correspondente em app/frontend/pages/Users/Edit.vue
+    render inertia: "Users/Edit"
   end
 
   def update
