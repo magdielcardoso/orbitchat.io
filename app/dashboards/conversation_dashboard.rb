@@ -16,7 +16,7 @@ class ConversationDashboard < Administrate::BaseDashboard
     metadata: Field::Text,
     status: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

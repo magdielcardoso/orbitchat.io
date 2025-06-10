@@ -46,6 +46,3 @@ group :test do
   gem "database_cleaner-active_record"
   gem "minitest-reporters"
 end
-
-
-
