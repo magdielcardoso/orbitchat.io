@@ -1,23 +1,36 @@
 source "https://rubygems.org"
 
-# Rails & Infra
+# Rails
 gem "rails", "~> 8.0.2"
-gem "propshaft"
 gem "puma", ">= 5.0"
-gem "jbuilder"
-gem "bootsnap", require: false
-gem "kamal", require: false
-gem "thruster", require: false
-gem "solid_cache"
-gem "solid_queue"
 gem "solid_cable"
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data"
+
+# Assets
+gem "propshaft"
+
+# Server & Infra
+gem "bootsnap", require: false
+gem 'dotenv-rails'
+gem "thruster", require: false
+
+# Cache and Queue
+gem 'redis'
+gem 'sidekiq'
+gem 'sidekiq-cron'
+
+# Deployment
+gem "kamal", require: false
 
 # Database
 gem "pg"
 
-# Authentication
+# Authentication & Authorization
 gem "devise", "~> 4.9"
+gem 'pundit'
+
+# API
+gem "jbuilder"
 
 # Frontend
 gem "inertia_rails", "~> 3.8"
@@ -34,10 +47,13 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
+  gem 'byebug'
 end
 
 group :development do
   gem "web-console"
+  gem 'bullet'
+  gem 'rack-mini-profiler', require: false
 end
 
 group :test do
