@@ -56,6 +56,7 @@ group :development do
   gem "web-console"
   gem 'bullet'
   gem 'rack-mini-profiler', require: false
+  gem 'rails_db'
 end
 
 group :test do
