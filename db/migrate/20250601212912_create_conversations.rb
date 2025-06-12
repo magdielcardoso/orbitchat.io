@@ -9,5 +9,9 @@ class CreateConversations < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
+    add_index :conversations, :status
+    add_index :conversations, :last_activity_at
+    add_index :conversations, :inbox_id
+    add_index :conversations, :contact_id
   end
 end

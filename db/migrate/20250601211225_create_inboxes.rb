@@ -10,5 +10,7 @@ class CreateInboxes < ActiveRecord::Migration[8.0]
       t.timestamps
     end
     add_index :inboxes, [ :channel_type, :channel_id ]
+    add_index :inboxes, :account_id
+    add_index :inboxes, :active
   end
 end

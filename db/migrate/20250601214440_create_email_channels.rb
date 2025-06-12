@@ -8,5 +8,7 @@ class CreateEmailChannels < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
+    add_index :email_channels, :email
+    add_index :email_channels, :active
   end
 end

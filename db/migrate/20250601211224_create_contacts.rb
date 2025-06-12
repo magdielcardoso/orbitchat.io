@@ -8,5 +8,7 @@ class CreateContacts < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
+    add_index :contacts, :email
+    add_index :contacts, :account_id
   end
 end

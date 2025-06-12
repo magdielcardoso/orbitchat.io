@@ -8,5 +8,7 @@ class CreateApiChannels < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
+    add_index :api_channels, :token
+    add_index :api_channels, :active
   end
 end

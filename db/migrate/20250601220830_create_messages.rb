@@ -11,5 +11,11 @@ class CreateMessages < ActiveRecord::Migration[8.0]
 
       t.timestamps
     end
+    add_index :messages, :status
+    add_index :messages, :created_at
+    add_index :messages, :conversation_id
+    add_index :messages, :account_id
+    add_index :messages, :inbox_id
+    add_index :messages, [ :sender_type, :sender_id ]
   end
 end
