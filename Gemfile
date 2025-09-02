@@ -35,7 +35,7 @@ gem 'pundit'
 gem "jbuilder"
 
 # Frontend
-gem "inertia_rails", "~> 3.8"
+gem "inertia_rails", "~> 3.11"
 gem "vite_rails", "~> 3.0"
 gem "tailwindcss-rails"
 
